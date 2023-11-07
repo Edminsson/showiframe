@@ -15,7 +15,7 @@ window.addEventListener("load", () => {
       document.body.appendChild(iframe);
     });
 
-    skapaIframe.addEventListener('click', () => {
+    raderaIframe.addEventListener('click', () => {
       console.log('remove iframe');
       const iFrameEl = document.getElementById('iframe');
       document.body.removeChild(iFrameEl);
