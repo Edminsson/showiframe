@@ -1,6 +1,3 @@
-const appDiv = document.getElementById('app');
-appDiv.innerHTML = `<h1>Iframe och window.open</h1>`;
-
 const skapaIframe = document.getElementById('skapa-iframe');
 const openWindow = document.getElementById('open-window');
 const closeWindow = document.getElementById('close-window');
