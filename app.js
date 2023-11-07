@@ -8,8 +8,8 @@ window.addEventListener("load", () => {
       console.log('iframe');
       const iframe = document.createElement('iframe');
       iframe.src = 'https://rad-choux-97d2d8.netlify.app/';
-      iframe.style.width = '300px';
-      iframe.style.height = '200px';
+      iframe.style.width = '500px';
+      iframe.style.height = '500px';
       document.body.appendChild(iframe);
     });
     
@@ -18,7 +18,7 @@ window.addEventListener("load", () => {
       embeddedWindow = window.open(
         "https://rad-choux-97d2d8.netlify.app/",
         "_blank",
-        "width=300,height=200,resizable=no,scrollbars=no,left=300,top=150"
+        "width=400,height=500,resizable=no,scrollbars=no,left=300,top=150"
       );  
     });
     
