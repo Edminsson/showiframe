@@ -37,12 +37,13 @@ window.addEventListener("load", () => {
 
     sendMessage.addEventListener('click', () => {
       console.log('sendMessage');
-      embeddedWindow.postMessage('Message from showIframe')
+      embeddedWindow.postMessage('HELLO: Message from showIframe')
     });
 
     window.addEventListener('message', event => {
       // Försöker filtrera bort en massa meddelande
-      if (event.origin !== "https://melodic-kleicha-6ae778.netlify.app") {
+      //event.data.startsWith('HELLO')
+      if (event.data.startsWith('HELLO')) {
         console.log('MESSAGE:', event)
       }
     });
