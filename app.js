@@ -40,5 +40,10 @@ window.addEventListener("load", () => {
       embeddedWindow.postMessage('Message from showIframe')
     });
 
-    window.addEventListener('message', event => console.log('MESSAGE:', event));
+    window.addEventListener('message', event => {
+      // Försöker filtrera bort en massa meddelande
+      if (event.origin !== "https://melodic-kleicha-6ae778.netlify.app") {
+        console.log('MESSAGE:', event)
+      }
+    });
 });
