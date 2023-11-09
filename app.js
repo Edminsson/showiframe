@@ -3,6 +3,7 @@ window.addEventListener("load", () => {
     const raderaIframe = document.getElementById('remove-iframe');
     const openWindow = document.getElementById('open-window');
     const closeWindow = document.getElementById('close-window');
+    const sendMessage = document.getElementById('send-message');
     let embeddedWindow;
     
     skapaIframe.addEventListener('click', () => {
@@ -29,9 +30,15 @@ window.addEventListener("load", () => {
         "width=400,height=500,resizable=no,scrollbars=no,left=300,top=150"
       );  
     });
-    
+
     closeWindow.addEventListener('click', () => {
       embeddedWindow.close();
     });
-    
+
+    sendMessage.addEventListener('click', () => {
+      console.log('sendMessage');
+      embeddedWindow.postMessage('Message from showIframe')
+    });
+
+    window.addEventListener('message', event => console.log('MESSAGE:', event));
 });
