@@ -42,8 +42,7 @@ window.addEventListener("load", () => {
 
     window.addEventListener('message', event => {
       // Försöker filtrera bort en massa meddelande
-      //event.data.startsWith('HELLO')
-      if (event.data.startsWith('HELLO')) {
+      if (typeof event.data !== 'object') {
         console.log('MESSAGE:', event)
       }
     });
