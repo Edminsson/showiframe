@@ -3,7 +3,8 @@ window.addEventListener("load", () => {
     const raderaIframe = document.getElementById('remove-iframe');
     const openWindow = document.getElementById('open-window');
     const closeWindow = document.getElementById('close-window');
-    const sendMessage = document.getElementById('send-message');
+    const sendMessageWindow = document.getElementById('send-message-window');
+    const sendMessageIframe = document.getElementById('send-message-iframe');
     let embeddedWindow;
     
     skapaIframe.addEventListener('click', () => {
@@ -35,14 +36,20 @@ window.addEventListener("load", () => {
       embeddedWindow.close();
     });
 
-    sendMessage.addEventListener('click', () => {
-      console.log('sendMessage');
-      embeddedWindow.postMessage('HELLO: Message from showIframe')
+    sendMessageWindow.addEventListener('click', () => {
+      console.log('send message to window');
+      embeddedWindow.postMessage('HELLO: Message from showIframe', 'https://rad-choux-97d2d8.netlify.app');
+    });
+
+    sendMessageIframe.addEventListener('click', () => {
+      console.log('send message to iframe');
+      const iFrameEl = document.getElementById('iframe');
+      iFrameEl.contentWindow.postMessage('HELLO: Message from showIframe', 'https://rad-choux-97d2d8.netlify.app');
     });
 
     window.addEventListener('message', event => {
       // Försöker filtrera bort en massa meddelande
-      if (typeof event.data !== 'object') {
+      if (event.origin === 'https://rad-choux-97d2d8.netlify.app') {
         console.log('MESSAGE:', event)
       }
     });
